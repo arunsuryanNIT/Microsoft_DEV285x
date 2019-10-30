@@ -11,15 +11,20 @@ public class InsertionSort {
             System.out.print("Element number " + i + "? ");
             arr[i] = sc.nextInt();
         }
-        for(int i = 1; i < arr.length - 1; i++){
-            int value = arr[i];
-            int place = i;
-            while(place > 0 && arr[place] > value){
-                arr[place] = arr[place - 1];
-                place = place - 1;
+        int i= 0, j = 0, value = 0, k = 0;
+        for (i = 1; i < arr.length; i++)
+        {
+            value = arr[i];
+            j = i - 1;
+            while (j >= 0 && arr[j] > value)
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                j--;
             }
-            arr[place] = value;
+            System.out.println("After iteration " + k);
+            System.out.println(Arrays.toString(arr));
         }
-        System.out.print(Arrays.toString(arr));
     }
 }
